@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,400;1,500;1,700&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* --- */
+
+@layer base {
+  html {
+    @apply subpixel-antialiased;
+  }
+
+  body {
+    @apply text-slate-700 leading-relaxed font-body;
+    @apply bg-gradient-to-br from-purple-500 to-orange-500;
+  }
+}
+
+@layer components {
+  #root {
+    @apply min-h-screen;
+    @apply flex flex-row gap-8 justify-center items-center;
+  }
+}
