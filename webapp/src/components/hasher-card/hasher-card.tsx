@@ -12,6 +12,17 @@ type HasherCardProps = {
   onEnd?: () => void
 }
 
+const __performHashing = (seed: string, hasher: HasherFunction): string => {
+  let __seed = `${seed}` // make a copy, just in case
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  for (const _ of Array.from({ length: 1000 })) {
+    __seed = hasher(__seed)
+  }
+
+  return __seed
+}
+
 const HasherCard: FC<HasherCardProps> = (props) => {
   const [state, updateState] = useState({
     disabled: false,
@@ -25,11 +36,8 @@ const HasherCard: FC<HasherCardProps> = (props) => {
 
     props.onStart?.()
 
-    let seed = 'abc'
-    for (let _ = 0; _ < 1000; _ += 1) {
-      seed = props.hasher(seed)
-    }
-    console.debug(seed)
+    const output = __performHashing('abc', props.hasher)
+    console.debug(output)
 
     props.onEnd?.()
 
