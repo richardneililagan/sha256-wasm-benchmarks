@@ -27,7 +27,7 @@ const HomeView: FC<HomeViewProps> = () => {
           onEnd={() => console.debug('end JS')}
         />
         <HasherCard title='WASM + Rust' hasher={hashers.js} disabled />
-        <HasherCard title='Native Browser APIs' hasher={hashers.js} disabled />
+        <HasherCard title='Native Browser APIs' hasher={hashers.native} />
       </div>
       <footer>blah</footer>
     </section>

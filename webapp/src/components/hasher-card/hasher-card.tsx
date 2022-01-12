@@ -3,6 +3,8 @@ import type { HasherFunction } from '@/services/hasher'
 
 // :: ---
 
+const HASH_ITERATION_LENGTH = 1000
+
 type HasherCardProps = {
   title: string
   hasher: HasherFunction
@@ -12,12 +14,12 @@ type HasherCardProps = {
   onEnd?: () => void
 }
 
-const __performHashing = (seed: string, hasher: HasherFunction): string => {
+const __performHashing = async (seed: string, hasher: HasherFunction): Promise<string> => {
   let __seed = `${seed}` // make a copy, just in case
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  for (const _ of Array.from({ length: 1000 })) {
-    __seed = hasher(__seed)
+  for (const _ of Array.from({ length: HASH_ITERATION_LENGTH })) {
+    __seed = await hasher(__seed)
   }
 
   return __seed
@@ -28,7 +30,7 @@ const HasherCard: FC<HasherCardProps> = (props) => {
     disabled: false,
   })
 
-  const handleStart = useCallback(() => {
+  const handleStart = useCallback(async () => {
     updateState((state) => ({
       ...state,
       disabled: true,
@@ -36,7 +38,7 @@ const HasherCard: FC<HasherCardProps> = (props) => {
 
     props.onStart?.()
 
-    const output = __performHashing('abc', props.hasher)
+    const output = await __performHashing('abc', props.hasher)
     console.debug(output)
 
     props.onEnd?.()
