@@ -3,7 +3,7 @@ import type { HasherFunction } from '@/services/hasher'
 
 // :: ---
 
-const HASH_ITERATION_LENGTH = 1000
+const HASH_ITERATION_LENGTH = 1
 
 type HasherCardProps = {
   title: string
@@ -28,6 +28,7 @@ const __performHashing = async (seed: string, hasher: HasherFunction): Promise<s
 const HasherCard: FC<HasherCardProps> = (props) => {
   const [state, updateState] = useState({
     disabled: false,
+    duration: 1,
   })
 
   const handleStart = useCallback(async () => {
@@ -52,9 +53,14 @@ const HasherCard: FC<HasherCardProps> = (props) => {
   return (
     <div className='w-1/4 h-96 p-4 rounded-lg bg-white shadow hover:shadow-lg transition transition-all flex flex-col gap-8'>
       <header className='text-center text-lg'>{props.title}</header>
-      <div className='flex-grow'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, praesentium.
-      </div>
+      <section className='flex-grow flex flex-col'>
+        <div className='flex-grow'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, praesentium.
+        </div>
+        {state.duration > 0 && (
+          <div className='text-center font-mono text-teal-600'>{state.duration} ms</div>
+        )}
+      </section>
       <footer>
         <button
           className='w-full py-4 rounded-lg bg-indigo-100 text-indigo-500 disabled:text-slate-300 disabled:bg-slate-100'

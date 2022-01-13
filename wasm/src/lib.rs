@@ -1,5 +1,6 @@
 mod utils;
 
+use sha2::{Digest, Sha256};
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -8,17 +9,12 @@ use wasm_bindgen::prelude::*;
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
-#[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
+// :: ---
 
 #[wasm_bindgen]
-pub fn greet() {
-    {
-        #[allow(unused_unsafe)]
-        unsafe {
-            alert("Hello, wasm!");
-        }
-    }
+pub fn sha256(input: String) -> String {
+    let mut hasher = Sha256::new();
+    hasher.update(&input);
+
+    format!("{:x}", hasher.finalize())
 }

@@ -1,4 +1,8 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import init, { sha256 } from 'wasm'
+
+// :: ?url is required so that vite doesn't mangle the WASM binary contents.
+import wasm from 'wasm/wasm_bg.wasm?url'
 
 import HasherCard from '@/components/hasher-card'
 import hashers from '@/services/hasher'
@@ -10,6 +14,13 @@ type HomeViewProps = {
 }
 
 const HomeView: FC<HomeViewProps> = () => {
+  // useEffect(() => {
+  //   init(wasm).then(() => {
+  //     const hash = sha256('abc')
+  //     console.log(hash)
+  //   })
+  // }, [])
+
   return (
     <section className='flex flex-col gap-16 justify-center items-center'>
       <header className='text-white text-center flex flex-col gap-4 justify-center items-center'>
@@ -26,7 +37,7 @@ const HomeView: FC<HomeViewProps> = () => {
           onStart={() => console.debug('start JS')}
           onEnd={() => console.debug('end JS')}
         />
-        <HasherCard title='WASM + Rust' hasher={hashers.js} disabled />
+        <HasherCard title='WASM + Rust' hasher={hashers.wasm} />
         <HasherCard title='Native Browser APIs' hasher={hashers.native} />
       </div>
       <footer>blah</footer>
