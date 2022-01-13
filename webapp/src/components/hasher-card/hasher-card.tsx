@@ -53,7 +53,7 @@ const HasherCard: FC<HasherCardProps> = (props) => {
     <div className='w-1/4 h-80 p-4 rounded-lg bg-white shadow hover:shadow-lg transition-all flex flex-col gap-4'>
       <header className='text-center text-lg font-semibold'>{props.title}</header>
       <section className='flex-grow flex flex-col'>
-        <div className='flex-grow flex flex-col gap-2'>{props.children}</div>
+        <div className='flex-grow flex flex-col gap-2 text-center'>{props.children}</div>
         {state.duration > 0 && (
           <div className='text-center font-mono text-teal-600'>{state.duration} ms</div>
         )}

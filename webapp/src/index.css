@@ -20,7 +20,7 @@
     @apply font-mono text-pink-600;
   }
 
-  a[href] {
+  a[href]:not(footer a) {
     @apply underline decoration-pink-600 underline-offset-2 text-pink-600 hover:text-pink-700;
   }
 }

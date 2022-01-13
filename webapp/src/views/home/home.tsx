@@ -64,7 +64,24 @@ const HomeView: FC<HomeViewProps> = () => {
           </aside>
         </HasherCard>
       </div>
-      <footer>blah</footer>
+      <footer className='text-sm text-slate-300 flex flex-row gap-1'>
+        <span>&copy; 2022</span>
+        <a
+          href='https://richardneililagan.com'
+          target='_blank'
+          className='text-white hover:underline'
+        >
+          Richard Neil Ilagan
+        </a>
+        <span className='text-slate-300'>/</span>
+        <a
+          href='https://github.com/richardneililagan/sha256-wasm-benchmarks'
+          rel='external noopener nofollow noreferrer'
+          className='hover:underline hover:text-white'
+        >
+          Fork this on Github.
+        </a>
+      </footer>
     </section>
   )
 }
