@@ -4,7 +4,7 @@ import sha256wasm from './sha256-wasm'
 
 // :: ---
 
-export type HasherFunction = (input: string) => Promise<string>
+export type HasherFunction = (input: string, iterations: number) => Promise<string>
 
 const __hasher: Record<string, HasherFunction> = {
   js: sha256js,

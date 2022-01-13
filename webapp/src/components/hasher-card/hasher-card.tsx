@@ -15,14 +15,10 @@ type HasherCardProps = {
 }
 
 const __performHashing = async (seed: string, hasher: HasherFunction): Promise<string> => {
-  let __seed = `${seed}` // make a copy, just in case
+  const __seed = `${seed}` // make a copy, just in case
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  for (const _ of Array.from({ length: HASH_ITERATION_LENGTH })) {
-    __seed = await hasher(__seed)
-  }
-
-  return __seed
+  return await hasher(__seed, HASH_ITERATION_LENGTH)
 }
 
 const HasherCard: FC<HasherCardProps> = (props) => {
