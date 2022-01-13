@@ -3,6 +3,8 @@ name = "wasm"
 version = "0.1.0"
 authors = ["Richard Neil Ilagan <705310+richardneililagan@users.noreply.github.com>"]
 edition = "2018"
+license = "GPL-2.0-only"
+repository = "https://github.com/richardneililagan/sha256-wasm-benchmarks"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
