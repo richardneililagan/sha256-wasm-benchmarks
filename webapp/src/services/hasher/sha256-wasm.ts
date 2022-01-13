@@ -7,8 +7,8 @@ import wasm from 'wasm/wasm_bg.wasm?url'
 
 init(wasm)
 
-const sha256algo = async (input: string): Promise<string> => {
-  return sha256(input)
+const sha256algo = async (input: string, iterations: number): Promise<string> => {
+  return sha256(input, iterations)
 }
 
 export default sha256algo

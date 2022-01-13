@@ -3,7 +3,7 @@ import type { HasherFunction } from '@/services/hasher'
 
 // :: ---
 
-const HASH_ITERATION_LENGTH = 100_000
+const HASH_ITERATION_LENGTH = 200_000
 
 type HasherCardProps = {
   title: string
