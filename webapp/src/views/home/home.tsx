@@ -13,7 +13,7 @@ const HomeView: FC<HomeViewProps> = () => {
   return (
     <section className='flex flex-col gap-8 justify-center items-center'>
       <header className='text-white text-center flex flex-col gap-4 justify-center items-center'>
-        <h1 className='text-4xl font-light'>Web Assembly benchmarking</h1>
+        <h1 className='text-4xl font-light'>WebAssembly benchmarking</h1>
         <p className='font-light text-xl lg:w-2/3'>
           This webapp compares SHA-256 hashing speeds between plain Javascript, a WASM module built
           using Rust, and the native Browser cryptographic APIs.

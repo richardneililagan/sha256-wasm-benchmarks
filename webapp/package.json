@@ -1,5 +1,5 @@
 {
-  "name": "@richardneililagan/wasm-sha256-webapp",
+  "name": "@sha256-wasm-benchmarks/webapp",
   "version": "0.0.0",
   "private": true,
   "license": "GPL-2.0-only",

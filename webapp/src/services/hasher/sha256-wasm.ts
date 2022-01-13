@@ -1,7 +1,7 @@
-import init, { sha256 } from 'wasm'
+import init, { sha256 } from '@sha256-wasm-benchmarks/wasm'
 
 // :: ?url is required so that vite doesn't mangle the WASM binary contents.
-import wasm from 'wasm/wasm_bg.wasm?url'
+import wasm from '@sha256-wasm-benchmarks/wasm/wasm_bg.wasm?url'
 
 // :: ---
 
