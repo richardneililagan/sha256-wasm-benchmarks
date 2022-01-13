@@ -3,7 +3,7 @@ import type { HasherFunction } from '@/services/hasher'
 
 // :: ---
 
-const HASH_ITERATION_LENGTH = 1
+const HASH_ITERATION_LENGTH = 100_000
 
 type HasherCardProps = {
   title: string
@@ -28,7 +28,7 @@ const __performHashing = async (seed: string, hasher: HasherFunction): Promise<s
 const HasherCard: FC<HasherCardProps> = (props) => {
   const [state, updateState] = useState({
     disabled: false,
-    duration: 1,
+    duration: 0,
   })
 
   const handleStart = useCallback(async () => {
@@ -39,7 +39,9 @@ const HasherCard: FC<HasherCardProps> = (props) => {
 
     props.onStart?.()
 
+    const __start = performance.now()
     const output = await __performHashing('abc', props.hasher)
+    const __end = performance.now()
     console.debug(output)
 
     props.onEnd?.()
@@ -47,6 +49,7 @@ const HasherCard: FC<HasherCardProps> = (props) => {
     updateState((state) => ({
       ...state,
       disabled: false,
+      duration: __end - __start,
     }))
   }, [props.hasher, updateState])
 
