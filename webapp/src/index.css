@@ -15,6 +15,14 @@
     @apply text-slate-700 leading-relaxed font-body;
     @apply bg-gradient-to-br from-purple-500 to-orange-500;
   }
+
+  code {
+    @apply font-mono text-pink-600;
+  }
+
+  a[href] {
+    @apply underline decoration-pink-600 underline-offset-2 text-pink-600 hover:text-pink-700;
+  }
 }
 
 @layer components {

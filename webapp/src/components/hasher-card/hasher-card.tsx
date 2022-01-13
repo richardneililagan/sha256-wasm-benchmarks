@@ -50,12 +50,10 @@ const HasherCard: FC<HasherCardProps> = (props) => {
   }, [props.hasher, updateState])
 
   return (
-    <div className='w-1/4 h-96 p-4 rounded-lg bg-white shadow hover:shadow-lg transition transition-all flex flex-col gap-8'>
-      <header className='text-center text-lg'>{props.title}</header>
+    <div className='w-1/4 h-80 p-4 rounded-lg bg-white shadow hover:shadow-lg transition-all flex flex-col gap-4'>
+      <header className='text-center text-lg font-semibold'>{props.title}</header>
       <section className='flex-grow flex flex-col'>
-        <div className='flex-grow'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, praesentium.
-        </div>
+        <div className='flex-grow flex flex-col gap-2'>{props.children}</div>
         {state.duration > 0 && (
           <div className='text-center font-mono text-teal-600'>{state.duration} ms</div>
         )}
