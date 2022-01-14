@@ -25,11 +25,11 @@ const HomeView: FC<HomeViewProps> = () => {
           <div>Your browser may compile WASM in debug mode if DevTools are open.</div>
         </aside>
       </header>
-      <div className='w-full flex flex-row gap-2 justify-center items-center'>
+      <div className='w-full flex flex-col md:flex-row gap-2 justify-center items-center'>
         <HasherCard title='Vanilla JS' hasher={hashers.js}>
           <p>
             Uses the{' '}
-            <a href='https://crypto.stanford.edu/sjcl/' rel='external nofollow noopen noreferrer'>
+            <a href='https://crypto.stanford.edu/sjcl/' rel='external nofollow noopen noreferrer' target='_blank'>
               Stanford Javascript Crypto Library (SJCL)
             </a>
             .
@@ -41,6 +41,7 @@ const HomeView: FC<HomeViewProps> = () => {
             <a
               href='https://docs.rs/sha2/0.10.1/sha2/index.html'
               rel='external nofollow noopen noreferrer'
+              target='_blank'
             >
               <code>sha2</code>
             </a>{' '}
@@ -53,6 +54,7 @@ const HomeView: FC<HomeViewProps> = () => {
             <a
               href='https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto'
               rel='external nofollow noopen noreferrer'
+              target='_blank'
             >
               <code>SubtleCrypto API</code>
             </a>
@@ -78,6 +80,7 @@ const HomeView: FC<HomeViewProps> = () => {
           href='https://github.com/richardneililagan/sha256-wasm-benchmarks'
           rel='external noopener nofollow noreferrer'
           className='hover:underline hover:text-white'
+          target='_blank'
         >
           Fork this on Github.
         </a>

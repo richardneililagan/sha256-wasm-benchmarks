@@ -5,9 +5,10 @@ import wasm from '@sha256-wasm-benchmarks/wasm/wasm_bg.wasm?url'
 
 // :: ---
 
-init(wasm)
+const __compile = init(wasm)
 
 const sha256algo = async (input: string, iterations: number): Promise<string> => {
+  await __compile
   return sha256(input, iterations)
 }
 

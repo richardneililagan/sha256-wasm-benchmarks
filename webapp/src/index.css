@@ -14,6 +14,7 @@
   body {
     @apply text-slate-700 leading-relaxed font-body;
     @apply bg-gradient-to-br from-purple-500 to-orange-500;
+    @apply px-2 py-16 md:p-0;
   }
 
   code {
