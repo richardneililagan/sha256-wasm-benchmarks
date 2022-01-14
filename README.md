@@ -3,7 +3,7 @@
 A sample webapp that compares `SHA-256` hashing performance across 
 vanilla JS, a WebAssembly (WASM) module, and the native `SubtleCrypto` APIs.
 
-### [Live demo][demo] 🚀
+### [Live demo][demo] 🚀 [![Netlify Status](https://api.netlify.com/api/v1/badges/73b14fe6-f9df-4e3d-86d4-c26b00da171e/deploy-status)](https://app.netlify.com/sites/wasm-sha256-benchmarks/deploys)
 
 ---
 
